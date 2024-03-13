@@ -1,6 +1,8 @@
 ### Base Spring Config
 # Spring Config
 spring:
+  profiles:
+    active: default
   application:
     name: docker-test
   datasource:
