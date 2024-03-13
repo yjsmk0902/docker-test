@@ -41,6 +41,9 @@ replay_pid*
 *_LOCAL_*.txt
 *_REMOTE_*.txt
 
+# .env
+.env
+
 ### Java ###
 # Compiled class file
 *.class
