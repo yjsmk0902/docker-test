@@ -55,6 +55,7 @@ jobs:
           host: ${{ secrets.HOST }} # EC2 인스턴스 퍼블릭 DNS
           username: ubuntu
           key: ${{ secrets.PRIVATE_KEY }} # pem 키
+          envs: COMPOSE, USER, APP
           # 도커 작업
           script: |
             sudo docker-compose -f $COMPOSE down --rmi all
