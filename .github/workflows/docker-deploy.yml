@@ -45,9 +45,8 @@ jobs:
           docker build -t $USER/$APP -f ./Dockerfile .
           docker push $USER/$APP:latest
   CD:
-    environment: docker-test
     runs-on: ubuntu-latest
-
+    needs: CI
     steps:
       - name: 배포
         uses: appleboy/ssh-action@master
