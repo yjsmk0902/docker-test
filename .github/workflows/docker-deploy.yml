@@ -57,7 +57,7 @@ jobs:
       - name: 배포
         uses: appleboy/ssh-action@master
         env:
-          COMPOSE: "/root/docker-compose-dev.yml"
+          COMPOSE: "docker-compose-dev.yml"
           USER: ${{ secrets.DOCKER_USERNAME }}
           APP: ${{ secrets.DOCKER_APP_NAME }}
         with:
