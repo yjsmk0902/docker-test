@@ -38,7 +38,7 @@ jobs:
           username: ubuntu
           key: ${{ secrets.PRIVATE_KEY }}
           source: "./docker-compose-dev.yml"
-          target: "./docker-compose-dev.yml"
+          target: "./docker-compose/docker-compose-dev.yml"
 
       - name: 도커 로그인
         uses: docker/login-action@v2
@@ -57,7 +57,7 @@ jobs:
       - name: 배포
         uses: appleboy/ssh-action@master
         env:
-          COMPOSE: "docker-compose-dev.yml"
+          COMPOSE: "docker-compose/docker-compose-dev.yml"
           USER: ${{ secrets.DOCKER_USERNAME }}
           APP: ${{ secrets.DOCKER_APP_NAME }}
         with:
