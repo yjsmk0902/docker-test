@@ -31,10 +31,6 @@ jobs:
       - name: 빌드
         run: ./gradlew clean build -x test
 
-  CD:
-    environment: docker-test
-    runs-on: ubuntu-latest
-    steps:
       - name: 도커 로그인
         uses: docker/login-action@v2
         with:
@@ -48,7 +44,11 @@ jobs:
         run: |
           docker build -t $USER/$APP -f ./Dockerfile .
           docker push $USER/$APP:latest
+  CD:
+    environment: docker-test
+    runs-on: ubuntu-latest
 
+    steps:
       - name: 배포
         uses: appleboy/ssh-action@master
         env:
